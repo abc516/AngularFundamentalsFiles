@@ -1,8 +1,7 @@
-/**
- * Created by anton on 8/21/16.
- */
+'use strict';
+
 eventsApp.controller('EventListController',
-    function EventListController($scope, $location, EventData) {
-        $scope.events = EventData.getAllEvents();
+    function EventListController($scope, $location, eventData) {
+        $scope.events = eventData.getAllEvents();
     }
 );

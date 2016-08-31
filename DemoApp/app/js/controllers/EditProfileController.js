@@ -1,6 +1,3 @@
-/**
- * Created by anton on 8/11/16.
- */
 'use strict';
 
 eventsApp.controller('EditProfileController',
@@ -10,5 +7,6 @@ eventsApp.controller('EditProfileController',
         $scope.getGravatarUrl = function(email) {
             return gravatarUrlBuilder.buildGravatarUrl(email);
         }
+
     }
-)
+);

@@ -1,24 +1,23 @@
-/**
- * Created by anton on 8/6/16.
- */
-'use strict'
+'use strict';
 
-eventsApp.controller('EventController',
-    function EventController($scope, EventData, $routeParams) {
-
+eventsApp.controller('EventController', 
+    function EventController($scope, eventData, $routeParams, $route) {
         $scope.sortorder = 'name';
-        $scope.event = EventData.getEvent($routeParams.eventId)
+        $scope.event = $route.current.locals.event
+        $scope.reload = function() {
+            $route.reload();
+        }
 
-        $scope.upVoteSession = function (session) {
-            session.upVoteCount++;
+        $scope.upVoteSession = function(session) {
+          session.upVoteCount++;
         };
 
-        $scope.downVoteSession = function (session) {
-            session.upVoteCount--;
-        };
+        $scope.downVoteSession = function(session) {
+          session.upVoteCount--;
+        }
 
-        $scope.scrollToSession = function () {
-            $anchorScroll()
+        $scope.scrollToSession = function() {
+            $anchorScroll();
         }
     }
 );

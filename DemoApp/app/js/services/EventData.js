@@ -1,17 +1,14 @@
-/**
- * Created by anton on 8/11/16.
- */
-eventsApp.factory('EventData', function ($resource) {
-    var resource = $resource('/data/event/:id', {id:'@id'})
+eventsApp.factory('eventData', function($resource) {
+    var resource = $resource('/data/event/:id', {id:'@id'}, {"getAll": {method: "GET", isArray: true, params: {something: "foo"}}});
     return {
-        getEvent: function (eventId) {
-            return resource.get({id:eventId})
+        getEvent: function(eventId) {
+            return resource.get({id:eventId});
         },
-        save: function (event) {
-            event.id = 999
-            return resource.save(event)
+        save: function(event) {
+            event.id = 999;
+            return resource.save(event);
         },
-        getAllEvents: function () {
+        getAllEvents: function() {
             return resource.query();
         }
     };
